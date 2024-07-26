@@ -1,0 +1,136 @@
+.main-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(4, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-uploader-container {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 15px;
+    width: 400px;
+    background-color: white;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+}
+.top .upload h3{
+    height: 5px;
+}
+.top .fa-xmark{
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+.drag-drop-container {
+    border: 2px dashed #e0e0e0;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    height: 80px;
+}
+.drag-drop-container .png{
+    font-size: 10px;
+    color: #737373;
+}
+
+.images-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.image-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    height: 60px;
+}
+.image-item .radio{
+    display: flex;
+    height: 80px;
+    justify-content: start;
+}
+
+.image-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 50px;
+}
+.image-info div p{
+    font-size: 14px;
+    margin: 5px;
+}
+
+.image-info img {
+    border-radius: 5px;
+    width: 65px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.image-item div input[type="radio"] {
+    margin-right: 10px;
+    width: 15px;
+    height: 1.5em;
+}
+.image-info .filename, .image-info .size{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.image-actions {
+    display: flex;
+    gap: 10px;
+    height: 20px;
+    align-items: center;
+    color: #737373;
+}
+.image-actions p{
+    height: 5px;
+}
+.image-actions .crop, .image-actions .delete{
+    font-size: 12px;
+}
+
+.image-actions p:hover{
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4338ca;
+    color: white;
+    width: 50%;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.actions .cancel{
+    color: black;
+    background-color: white;
+    box-shadow: 1px 2px 2px 0px #737373;
+}
