@@ -110,9 +110,11 @@ const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
                     {uploading && <p>Uploading...</p>}
                     {uploadProgress !== null && <ProgressBar progress={uploadProgress} />}
                     {error && <p style={{ color: 'red' }}>{error}</p>}
-                    {!error && <div><i className="fa-solid fa-cloud-arrow-up fa-2x"></i></div>}
-                    <p>Click or drag and drop to upload</p>
-                    <p className='png'>PNG, or JPG (Max 5MB)</p>
+                    {!error && <div className='cloud'><i className="fa-solid fa-cloud-arrow-up fa-2x"></i></div>}
+                    <div className="container-p">
+                        <p className='container-p1'>Click or drag and drop to upload</p>
+                        <p className='png'>PNG, or JPG (Max 5MB)</p>
+                    </div>
                 </div>
 
                 <div className="images-list">
@@ -149,7 +151,7 @@ const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
 
                 <div className="actions">
                     <button className='cancel' onClick={onClose}>Cancel</button>
-                    <button onClick={handleImageSelectClick}>Select image</button>
+                    <button className='select' onClick={handleImageSelectClick}>Select image</button>
                 </div>
             </div>
         </div>
