@@ -61,6 +61,7 @@
     gap: 20px;
     align-items: center;
     padding: 15px;
+    cursor: pointer;
 }
 
 .container-p {
@@ -165,6 +166,8 @@
     color: #525252;
     display: flex;
     cursor: pointer;
+    align-items: center;
+    gap: 5px;
 }
 
 .actions {

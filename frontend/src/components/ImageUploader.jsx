@@ -131,6 +131,7 @@ const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
                                     </div>
                                     <div className="image-actions">
                                         <p className='crop' onClick={() => { setImageToCrop(image); setIsCropping(true); }}><i className="fa-solid fa-crop-simple"></i> Crop image</p>
+                                        &bull;
                                         <p className='delete' onClick={() => handleDelete(image._id)}><i className="fa-solid fa-trash-arrow-up"></i> Delete</p>
                                     </div>
                                 </div>
