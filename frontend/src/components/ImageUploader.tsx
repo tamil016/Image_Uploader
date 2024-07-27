@@ -126,14 +126,13 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ trigger, onClose, onImage
                 style={error ? { width: '528px', height: '74px' } : {}}>
                     <input {...getInputProps()} />
                     {uploading && <p>Uploading...</p>}
-                    {uploadProgress !== null && <ProgressBar progress={uploadProgress} />}
                     {error && <p style={{ color: 'red' }}>{error}</p>}
                     {!error && <div className='cloud'><i className="fa-solid fa-cloud-arrow-up fa-2x"></i></div>}
                     {!error && <div className="container-p">
                         <p className='container-p1'>Click or drag and drop to upload</p>
                         <p className='png'>PNG, or JPG (Max 5MB)</p>
                     </div>}
-                    {error === 'You have reached the image limit.' && <p className='pngs'>
+                    {error === `You've reached the image limit.` && <p className='pngs'>
                         Remove one or more to upload images</p>}
                 </div>
 
@@ -149,12 +148,13 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ trigger, onClose, onImage
                                         <p className='filename'>{image.filename}</p>
                                         <p className='size'>{(image.size / 1024).toFixed(2)} KB</p>
                                     </div>
+                                    {uploadProgress !== null && <ProgressBar progress={uploadProgress} />}
                                     <div className="image-actions">
                                         <p className='crop' onClick={() => { setImageToCrop(image); setIsCropping(true); }}><i className="fa-solid fa-crop-simple"></i> Crop image</p>
                                         &bull;
                                         <p className='delete' onClick={() => handleDelete(image._id)}><i className="fa-solid fa-trash-arrow-up"></i> Delete</p>
                                     </div>
-                                </div>
+                                </div>  
                             </div>
                             <div className='radio'>
                                 <input
