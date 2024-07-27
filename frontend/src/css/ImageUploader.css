@@ -53,10 +53,11 @@
     color: #525252;
     margin: 0px;
 }
-.pngs{
+
+.pngs {
     margin: 0;
-   position: absolute;
-   top: 90px;
+    position: absolute;
+    top: 90px;
 }
 
 .fa-xmark {
@@ -187,7 +188,7 @@
 }
 
 .actions {
-    width: 52   8px;
+    width: 52 8px;
     height: 44px;
     gap: var(--gap416px);
     opacity: 0px;
@@ -222,12 +223,10 @@
 
 @media (max-width: 480px) {
     .main-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .image-uploader-container {
@@ -267,7 +266,8 @@
         height: 80px;
         opacity: 0px;
     }
-    .container-p1{
+
+    .container-p1 {
         margin: 0px;
     }
 
@@ -277,18 +277,22 @@
         gap: var(--gap14px);
         opacity: 0px;
     }
-    .image-item{
+
+    .image-item {
         width: 300px;
     }
 
-    .image-info img{
+    .image-info img {
         width: 60px;
         height: 60px;
     }
-    .actions{
+
+    .actions {
         width: 300px;
     }
-    .actions .cancel, .actions .select{
+
+    .actions .cancel,
+    .actions .select {
         height: 30px;
         width: 170px;
     }

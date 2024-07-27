@@ -3,6 +3,7 @@
 body{
   background: linear-gradient(#F9FAFB, #D2D6DB);
   font-family: 'Noto Sans', sans-serif;
+  height: 82vh;
 }
 *{
   margin: 0px;
