@@ -122,8 +122,8 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ trigger, onClose, onImage
                         <i className="fa-solid fa-xmark" onClick={onClose}></i>
                     </div>
                 </div>
-                <div {...getRootProps()} className="drag-drop-container" 
-                style={error ? { width: '528px', height: '74px' } : {}}>
+                <div {...getRootProps()} className="drag-drop-container"
+                    style={error ? { width: '528px', height: '74px' } : {}}>
                     <input {...getInputProps()} />
                     {uploading && <p>Uploading...</p>}
                     {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -154,7 +154,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ trigger, onClose, onImage
                                         &bull;
                                         <p className='delete' onClick={() => handleDelete(image._id)}><i className="fa-solid fa-trash-arrow-up"></i> Delete</p>
                                     </div>
-                                </div>  
+                                </div>
                             </div>
                             <div className='radio'>
                                 <input

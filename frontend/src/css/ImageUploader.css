@@ -7,11 +7,14 @@
     height: 100%;
     background-color: rgba(4, 0, 0, 0.2);
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .image-uploader-container {
     width: 576px;
-    height: Hug (880px)px;
     top: 4433px;
     left: 70px;
     padding: var(--padding832px) var(--padding624px) var(--padding832px) var(--padding624px);
@@ -20,14 +23,10 @@
     opacity: 0px;
     background-color: #ffffff;
     padding: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.image-uploader-container::-webkit-scrollbar {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .top {

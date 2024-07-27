@@ -4,3 +4,6 @@ body{
   background: linear-gradient(#F9FAFB, #D2D6DB);
   font-family: 'Noto Sans', sans-serif;
 }
+*{
+  margin: 0px;
+}
