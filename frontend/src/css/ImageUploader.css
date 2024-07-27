@@ -7,36 +7,44 @@
     background-color: rgba(4, 0, 0, 0.2);
     display: flex;
     justify-content: center;
+    align-items: center;
     overflow: auto;
 }
 
 .image-uploader-container {
     width: var(--max-widthxl576px);
     height: Hug (880px)px;
-    top: 443px;
+    top: 4433px;
     left: 70px;
     padding: var(--padding832px) var(--padding624px) var(--padding832px) var(--padding624px);
     gap: var(--gap832px);
-    border-radius: var(--border-radiusrounded-lg8px);
-    opacity: 1px;
+    border-radius: 8px;
+    opacity: 0px;
     background-color: #ffffff;
-    padding: 15px;
-    overflow: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-uploader-container::-webkit-scrollbar {
+    display: none;
 }
 
 .top {
-    width: Fill (528px)px;
-    height: Hug (56px)px;
+    width: 528px;
+    height: 56px;
     gap: var(--gap14px);
     opacity: 0px;
     display: flex;
 }
 
 .upload h3 {
-    width: Fill (528px)px;
-    height: Hug (28px)px;
+    width: 528px;
+    height: 28px;
     gap: 8px;
     opacity: 0px;
+    margin: 0px;
 }
 
 .upload p {
@@ -45,11 +53,16 @@
     gap: 0px;
     opacity: 0px;
     color: #525252;
+    margin: 0px;
+}
+
+.fa-xmark {
+    cursor: pointer;
 }
 
 .drag-drop-container {
-    width: Fill (528px)px;
-    height: var(--height48192px);
+    width: 528px;
+    height: 152px;
     padding: var(--padding624px) 0px var(--padding624px) 0px;
     gap: var(--gap520px);
     border-radius: var(--border-radiusrounded4px);
@@ -65,11 +78,11 @@
 }
 
 .container-p {
-    width: Fill (528px)px;
-    height: Hug (52px)px;
+    width: 528px;
+    height: 52px;
     gap: var(--gap14px);
     opacity: 0px;
-
+    margin: 0px;
 }
 
 .container-p1 {
@@ -159,8 +172,8 @@
 }
 
 .image-actions {
-    width: Hug (199px)px;
-    height: Hug (20px)px;
+    width: 199px;
+    height: 20px;
     gap: var(--gap28px);
     opacity: 0px;
     color: #525252;
@@ -171,8 +184,8 @@
 }
 
 .actions {
-    width: Fill (528px)px;
-    height: Hug (44px)px;
+    width: 528px;
+    height: 44px;
     gap: var(--gap416px);
     opacity: 0px;
     display: flex;
@@ -180,7 +193,7 @@
 }
 
 .actions .cancel {
-    width: Fill (256px)px;
+    width: 256px;
     height: 44px;
     padding: var(--padding2-510px) var(--padding416px) var(--padding2-510px) var(--padding416px);
     gap: var(--gap1-56px);
@@ -190,14 +203,73 @@
     background-color: #ffffff;
     color: #171717;
     box-shadow: 1px 1px 1px 1px #E5E5E5;
+    margin: 0;
 }
 
 .actions .select {
-    width: Fill (256px)px;
+    width: 256px;
     height: 44px;
     padding: var(--padding2-510px) var(--padding416px) var(--padding2-510px) var(--padding416px);
     gap: var(--gap1-56px);
     border-radius: var(--rounded);
     opacity: 0px;
     background-color: #4338CA;
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-uploader-container {
+        max-width: 320px;
+        height: 344px;
+    }
+
+    .upload {
+        width: 272px;
+        height: 56px;
+        gap: var(--gap14px);
+        opacity: 0px;
+
+    }
+
+    .upload h3 {
+        width: 272px;
+        height: 28px;
+        gap: 8px;
+        opacity: 0px;
+
+    }
+
+    .drag-drop-container {
+        width: 272px;
+        height: 192px;
+        padding: var(--padding624px) 0px var(--padding624px) 0px;
+        gap: var(--gap520px);
+        border-radius: var(--border-radiusrounded4px);
+        border: 1px 0px 0px 0px;
+        opacity: 0px;
+        padding: 10px;
+    }
+
+    .container-p {
+        width: 272px;
+        height: 80px;
+        opacity: 0px;
+    }
+
+    .top {
+        width: 272px;
+        height: 56px;
+        gap: var(--gap14px);
+        opacity: 0px;
+    }
+
 }
