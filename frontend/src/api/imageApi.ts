@@ -1,8 +1,16 @@
-import axios from 'axios';
+import axios, { AxiosProgressEvent } from 'axios';
 
 const API_URL = 'http://localhost:5000/api/images';
 
-export const uploadImage = async (image, onProgress) => {
+interface Image {
+    _id: string;
+    url: string;
+    filename: string;
+    size: number;
+}
+
+export const uploadImage = async (image: File, onProgress: (progressEvent: AxiosProgressEvent) => void): Promise<Image> => {
+
     const formData = new FormData();
     formData.append('image', image);
 
@@ -14,12 +22,12 @@ export const uploadImage = async (image, onProgress) => {
     return response.data;
 };
 
-export const fetchImages = async () => {
+export const fetchImages = async (): Promise<Image[]> => {
     const response = await axios.get(API_URL);
     return response.data;
 };
 
-export const deleteImage = async (id) => {
+export const deleteImage = async (id: string): Promise<Image> => {
     const response = await axios.delete(`${API_URL}/${id}`);
     return response.data;
 };

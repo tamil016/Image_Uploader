@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import '../css/ProfileCard.css';
-import Tamil from '../assets/Tamil.jpeg';
+import Tamil from '../assets/Tamil.jpeg'
 import Mern from '../assets/MERN.jpeg';
 import ImageUploader from './ImageUploader';
 
-const ProfileCard = () => {
+const ProfileCard: React.FC = () => {
     const [isUploaderVisible, setIsUploaderVisible] = useState(false);
-    const [profileImage, setProfileImage] = useState(Tamil);
+    const [profileImage, setProfileImage] = useState<string>(Tamil);
 
     const popUpHandler = () => {
         setIsUploaderVisible(!isUploaderVisible);
     };
 
-    const handleImageSelect = (image) => {
+    const handleImageSelect = (image: { url: string }) => {
         setProfileImage(image.url);
         setIsUploaderVisible(false);
     };
 
     return (
         <div className="profile-card">
-            <div className="header">
+            <div className="header">    
                 <img src={Mern} alt="Background" className="background-image" />
             </div>
             <div className="profile-info">

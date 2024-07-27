@@ -1,4 +1,4 @@
-export const createImage = (url) =>
+export const createImage = (url: string): Promise<HTMLImageElement> =>
     new Promise((resolve, reject) => {
         const image = new Image();
         image.addEventListener('load', () => resolve(image));
@@ -7,4 +7,4 @@ export const createImage = (url) =>
         image.src = url;
     });
 
-export const getRadianAngle = (degreeValue) => (degreeValue * Math.PI) / 180;
+export const getRadianAngle = (degreeValue: number): number => (degreeValue * Math.PI) / 180;

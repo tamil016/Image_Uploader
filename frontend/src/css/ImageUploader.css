@@ -55,6 +55,11 @@
     color: #525252;
     margin: 0px;
 }
+.pngs{
+    margin: 0;
+   position: absolute;
+   top: 60px;
+}
 
 .fa-xmark {
     cursor: pointer;
@@ -184,7 +189,7 @@
 }
 
 .actions {
-    width: 528px;
+    width: 52   8px;
     height: 44px;
     gap: var(--gap416px);
     opacity: 0px;

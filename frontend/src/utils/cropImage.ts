@@ -1,6 +1,6 @@
 import { createImage } from './utils';
 
-const getCroppedImg = async (imageSrc, pixelCrop) => {
+const getCroppedImg = async (imageSrc: string, pixelCrop: { x: number; y: number; width: number; height: number }): Promise<string> => {
     const image = await createImage(imageSrc);
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -8,7 +8,7 @@ const getCroppedImg = async (imageSrc, pixelCrop) => {
     canvas.width = pixelCrop.width;
     canvas.height = pixelCrop.height;
 
-    ctx.drawImage(
+    ctx?.drawImage(
         image,
         pixelCrop.x,
         pixelCrop.y,
@@ -33,4 +33,3 @@ const getCroppedImg = async (imageSrc, pixelCrop) => {
 };
 
 export default getCroppedImg;
-

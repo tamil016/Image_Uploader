@@ -1,21 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
 import { uploadImage, fetchImages, deleteImage } from '../api/imageApi';
 import CropImageModal from './CropImageModal';
 import ProgressBar from './ProgressBar';
 import '../css/ImageUploader.css';
 
+interface Image {
+    _id: string;
+    url: string;
+    filename: string;
+    size: number;
+}
+
+interface ImageUploaderProps {
+    trigger: boolean;
+    onClose: () => void;
+    onImageSelect: (image: Image) => void;
+}
+
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
-const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
-    const [images, setImages] = useState([]);
+const ImageUploader: React.FC<ImageUploaderProps> = ({ trigger, onClose, onImageSelect }) => {
+    const [images, setImages] = useState<Image[]>([]);
     const [uploading, setUploading] = useState(false);
-    const [error, setError] = useState(null);
-    const [imageToCrop, setImageToCrop] = useState(null);
+    const [error, setError] = useState<string | null>(null);
+    const [imageToCrop, setImageToCrop] = useState<Image | null>(null);
     const [isCropping, setIsCropping] = useState(false);
-    const [uploadProgress, setUploadProgress] = useState(null);
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [uploadProgress, setUploadProgress] = useState<number | null>(null);
+    const [selectedImage, setSelectedImage] = useState<Image | null>(null);
 
     useEffect(() => {
         const getImages = async () => {
@@ -30,7 +42,7 @@ const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
         getImages();
     }, []);
 
-    const handleDrop = (acceptedFiles) => {
+    const handleDrop = (acceptedFiles: File[]) => {
         if (images.length + acceptedFiles.length > 5) {
             setError('You have reached the image limit.');
             return;
@@ -47,8 +59,10 @@ const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
 
             try {
                 const data = await uploadImage(file, (progressEvent) => {
-                    const progress = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                    setUploadProgress(progress);
+                    if (progressEvent.total) {
+                        const progress = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                        setUploadProgress(progress);
+                    }
                 });
 
                 setImages([...images, data]);
@@ -62,7 +76,7 @@ const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
         });
     };
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (id: string) => {
         try {
             await deleteImage(id);
             setImages(images.filter((image) => image._id !== id));
@@ -72,7 +86,7 @@ const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
         }
     };
 
-    const handleCrop = (croppedImage) => {
+    const handleCrop = (croppedImage: { id: string; url: string }) => {
         setImages(images.map((img) =>
             img._id === croppedImage.id ? { ...img, url: croppedImage.url } : img
         ));
@@ -81,7 +95,10 @@ const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
 
     const { getRootProps, getInputProps } = useDropzone({
         onDrop: handleDrop,
-        accept: 'image/jpeg, image/png',
+        accept: {
+            'image/jpeg': [],
+            'image/png': []
+        },
         onDropRejected: () => {
             setError('Unsupported file type. Please upload an image.');
         }
@@ -105,7 +122,8 @@ const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
                         <i className="fa-solid fa-xmark" onClick={onClose}></i>
                     </div>
                 </div>
-                <div {...getRootProps()} className="drag-drop-container">
+                <div {...getRootProps()} className="drag-drop-container" 
+                style={error ? { width: '528px', height: '74px' } : {}}>
                     <input {...getInputProps()} />
                     {uploading && <p>Uploading...</p>}
                     {uploadProgress !== null && <ProgressBar progress={uploadProgress} />}
@@ -115,7 +133,7 @@ const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
                         <p className='container-p1'>Click or drag and drop to upload</p>
                         <p className='png'>PNG, or JPG (Max 5MB)</p>
                     </div>}
-                    {error==='You have reached the image limit.' && <p className='png'>
+                    {error === 'You have reached the image limit.' && <p className='pngs'>
                         Remove one or more to upload images</p>}
                 </div>
 
@@ -142,7 +160,7 @@ const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
                                 <input
                                     type="radio"
                                     name="selectedImage"
-                                    checked={selectedImage && selectedImage._id === image._id}
+                                    checked={selectedImage ? selectedImage._id === image._id : false}
                                     onChange={() => setSelectedImage(image)}
                                 />
                             </div>
@@ -150,21 +168,15 @@ const ImageUploader = ({ trigger, onClose, onImageSelect }) => {
                     ))}
                 </div>
 
-                {isCropping && <CropImageModal image={imageToCrop} onCrop={handleCrop} onClose={() => setIsCropping(false)} />}
+                {isCropping && imageToCrop && <CropImageModal image={imageToCrop} onCrop={handleCrop} onClose={() => setIsCropping(false)} />}
 
-                {images.length >0 && <div className="actions">
+                {images.length > 0 && <div className="actions">
                     <button className='cancel' onClick={onClose}>Cancel</button>
                     <button className='select' onClick={handleImageSelectClick}>Select image</button>
                 </div>}
             </div>
         </div>
     ) : <h2>Loading...</h2>
-};
-
-ImageUploader.propTypes = {
-    trigger: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired,
-    onImageSelect: PropTypes.func.isRequired,
 };
 
 export default ImageUploader;

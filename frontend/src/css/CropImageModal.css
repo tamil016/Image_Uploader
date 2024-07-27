@@ -3,27 +3,36 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 500px;
-    width: 500px;
+    height: 458px;
+    width: 343px;
     background: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 16px;
+    border-radius: 5px;
+}
+
+.pic-mark {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    width: 295px;
+    height: 28px;
 }
 
 .crop-container {
     position: relative;
-    width: 65%;
-    height: 55%;
+    width: 295px;
+    height: 290px;
     background: black;
     border-radius: 8px;
     overflow: hidden;
+    border-radius: 50%;
 }
 
-.crop-actions button:hover {
-    background: #0056b3;
-}
 .crop-actions {
     display: flex;
     justify-content: space-between;
@@ -42,9 +51,20 @@ button {
     margin-top: 20px;
     font-weight: bold;
 }
-.crop-actions .cancel{
+
+.crop-actions .cancel {
     color: black;
     background-color: white;
     box-shadow: 1px 2px 2px 0px #737373;
 }
 
+@media (max-width: 480px) {
+    .crop-modal {
+        width: 343px;
+        height: 458px;
+        padding: var(--padding624px);
+        gap: var(--gap832px);
+        border-radius: var(--border-radiusrounded-lg8px);
+        opacity: 0px;
+    }
+}

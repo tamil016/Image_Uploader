@@ -1,23 +1,15 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
+    "parser": "@typescript-eslint/parser",
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
     ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+    "env": {
+      "browser": true,
+      "node": true
     },
-    "plugins": [
-        "react"
-    ],
     "rules": {
-        "react/react-in-jsx-scope": "off"
+      // Add your custom rules here
     }
-}
+  }
+  
