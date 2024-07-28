@@ -11,7 +11,9 @@ app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 app.use('/api/images', imageRoutes);
 
-mongoose.connect('mongodb://localhost:27017/image-uploader', {
+mongoose.connect("mongodb+srv://sndmail2tamil:tamilarasan123@cluster0.thhr83t.mongodb.net/", {
+    //mongodb+srv://sndmail2tamil:tamilarasan123@cluster0.thhr83t.mongodb.net/
+    //"mongodb+srv://tamilarasan:tamildbmongo@cluster0.iq4ja72.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
