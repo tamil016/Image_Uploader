@@ -137,7 +137,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ trigger, onClose, onImage
                 </div>
 
                 <div className="images-list">
-                    {images.map((image) => (
+                    {images.map((image,index) => (
                         <div key={image._id} className="image-item">
                             <div className="image-info">
                                 <div>
@@ -148,7 +148,9 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ trigger, onClose, onImage
                                         <p className='filename'>{image.filename}</p>
                                         <p className='size'>{(image.size / 1024).toFixed(2)} KB</p>
                                     </div>
-                                    {uploadProgress !== null && <ProgressBar progress={uploadProgress} />}
+                                    {uploading && uploadProgress !== null && index === images.length - 1 && (
+                                        <ProgressBar progress={uploadProgress} />
+                                    )}
                                     <div className="image-actions">
                                         <p className='crop' onClick={() => { setImageToCrop(image); setIsCropping(true); }}><i className="fa-solid fa-crop-simple"></i> Crop image</p>
                                         &bull;
