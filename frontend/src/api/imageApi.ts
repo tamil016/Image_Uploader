@@ -1,6 +1,6 @@
 import axios, { AxiosProgressEvent } from 'axios';
 
-const API_URL = 'http://localhost:5000/api/images';
+const API_URL = 'https://image-uploader-bdp9.onrender.com/api/images';
 
 interface Image {
     _id: string;
