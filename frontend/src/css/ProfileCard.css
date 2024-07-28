@@ -75,6 +75,10 @@
     padding: 10px;
 }
 
+.updated-button:hover{
+    background-color: #FAFAFA;
+}
+
 .button-pic {
     display: flex;
     justify-content: end;

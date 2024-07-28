@@ -210,6 +210,9 @@
     box-shadow: 1px 1px 1px 1px #E5E5E5;
     margin: 0;
 }
+.actions .cancel:hover{
+    background-color: #FAFAFA;
+}
 
 .actions .select {
     width: 256px;
@@ -219,6 +222,9 @@
     border-radius: var(--rounded);
     background-color: #4338CA;
     margin: 0;
+}
+.actions .select:hover{
+    background-color: #3730A3;
 }
 
 @media (max-width: 480px) {

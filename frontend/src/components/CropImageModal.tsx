@@ -53,7 +53,7 @@ const CropImageModal: React.FC<CropImageModalProps> = ({ image, onCrop, onClose 
                 </div>
                 <div className="crop-actions">
                     <button className='cancel' onClick={onClose}>Cancel</button>
-                    <button onClick={handleCrop}>Confirm</button>
+                    <button className='confirm' onClick={handleCrop}>Confirm</button>
                 </div>
             </div>
         </div>

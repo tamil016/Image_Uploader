@@ -51,11 +51,17 @@ button {
     margin-top: 20px;
     font-weight: bold;
 }
+.crop-actions .confirm:hover{
+    background-color: #3730A3;
+}
 
 .crop-actions .cancel {
     color: #000000;
     background-color: #ffffff;
     box-shadow: 1px 2px 2px 0px #737373;
+}
+.crop-actions .cancel:hover{
+    background-color: #FAFAFA;
 }
 
 @media (max-width: 480px) {
