@@ -71,6 +71,5 @@ button {
         padding: var(--padding624px);
         gap: var(--gap832px);
         border-radius: var(--border-radiusrounded-lg8px);
-        opacity: 0px;
     }
 }
