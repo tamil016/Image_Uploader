@@ -13,6 +13,10 @@
     justify-content: space-around;
 }
 
+.main-container::-webkit-scrollbar{
+    display: none;
+}
+
 .image-uploader-container {
     width: 576px;
     top: 4433px;
@@ -57,7 +61,8 @@
 .pngs {
     margin: 0;
     position: absolute;
-    top: 90px;
+    top: 120px;
+    color: #525252;
 }
 
 .fa-xmark {
@@ -174,6 +179,11 @@
     text-align: left;
     color: #525252;
 }
+.files{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
 .image-actions {
     width: 199px;
@@ -231,7 +241,6 @@
 
     .image-uploader-container {
         max-width: 320px;
-        height: 344px;
     }
 
     .upload {
@@ -240,6 +249,9 @@
         gap: var(--gap14px);
         opacity: 0px;
 
+    }
+    .pngs{
+        width: 272px;
     }
 
     .upload h3 {
@@ -285,6 +297,10 @@
     .image-info img {
         width: 60px;
         height: 60px;
+    }
+
+    .files{
+        gap: 0px;
     }
 
     .actions {

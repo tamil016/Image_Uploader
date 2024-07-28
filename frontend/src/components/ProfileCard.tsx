@@ -3,6 +3,8 @@ import '../css/ProfileCard.css';
 import Tamil from '../assets/Tamil.jpeg'
 import Mern from '../assets/MERN.jpeg';
 import ImageUploader from './ImageUploader';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const ProfileCard: React.FC = () => {
     const [isUploaderVisible, setIsUploaderVisible] = useState(false);
@@ -11,9 +13,27 @@ const ProfileCard: React.FC = () => {
     const popUpHandler = () => {
         setIsUploaderVisible(!isUploaderVisible);
     };
+    
+
+    const Notify = () => {
+        toast.success("Success  Changes saved successfully", {
+            position: "top-center",
+            hideProgressBar : true,
+            icon : false,
+            autoClose : 2000,
+            closeButton : false,
+            style:{
+                backgroundColor: "transparent",
+                boxShadow : "none",
+                border : "none",
+                color : 'green'
+            }
+        });
+    };
 
     const handleImageSelect = (image: { url: string }) => {
         setProfileImage(image.url);
+        Notify()
         setIsUploaderVisible(false);
     };
 
@@ -33,6 +53,7 @@ const ProfileCard: React.FC = () => {
                 </div>
             </div>
             {isUploaderVisible && <ImageUploader trigger={true} onClose={popUpHandler} onImageSelect={handleImageSelect} />}
+            <ToastContainer/>
         </div>
     );
 };

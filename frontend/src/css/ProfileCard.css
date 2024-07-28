@@ -5,7 +5,7 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    background-color: #ffffff;
     margin-top: 8%;
 }
 
@@ -51,7 +51,7 @@
 .profile-details p {
     margin: 0;
     font-size: 1em;
-    color: gray;
+    color: #737373;
 }
 
 .profile-details .webflow {
@@ -65,8 +65,8 @@
     background: none;
     font-weight: bold;
     cursor: pointer;
-    background-color: white;
-    color: black;
+    background-color: #ffffff;
+    color: #000000;
     outline: none;
     border: 0.5px;
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);

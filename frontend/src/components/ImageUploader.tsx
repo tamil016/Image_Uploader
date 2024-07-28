@@ -44,7 +44,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ trigger, onClose, onImage
 
     const handleDrop = (acceptedFiles: File[]) => {
         if (images.length + acceptedFiles.length > 5) {
-            setError('You have reached the image limit.');
+            setError(`You've reached the image limit.`);
             return;
         }
 
@@ -123,7 +123,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ trigger, onClose, onImage
                     </div>
                 </div>
                 <div {...getRootProps()} className="drag-drop-container"
-                    style={error ? { width: '528px', height: '74px' } : {}}>
+                    style={error ? { height: '74px' } : {}}>
                     <input {...getInputProps()} />
                     {uploading && <p>Uploading...</p>}
                     {error && <p style={{ color: 'red' }}>{error}</p>}
