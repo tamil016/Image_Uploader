@@ -2,10 +2,12 @@ const express = require('express');
 const multer = require('multer');
 const Image = require('../models/Image');
 const router = express.Router();
+const path = require('path')
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        return cb(null, require('path').resolve('./')+"/uploads");
+        // return cb(null, path.resolve('./')+"/uploads");
+        return cb(null, path.resolve('./uploads'));
     },
     filename: (req, file, cb) => {
        return cb(null, `${file.originalname}`);
