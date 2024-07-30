@@ -1,6 +1,7 @@
 import axios, { AxiosProgressEvent } from 'axios';
 
-const API_URL = 'https://image-uploader-bdp9.onrender.com/api/images';
+// const API_URL = 'https://image-uploader-bdp9.onrender.com/api/images';
+const API_URL = 'http://localhost:5000/api/images';
 
 interface Image {
     _id: string;
@@ -10,7 +11,6 @@ interface Image {
 }
 
 export const uploadImage = async (image: File, onProgress: (progressEvent: AxiosProgressEvent) => void): Promise<Image> => {
-
     const formData = new FormData();
     formData.append('image', image);
 
@@ -18,7 +18,6 @@ export const uploadImage = async (image: File, onProgress: (progressEvent: Axios
         headers: { 'Content-Type': 'multipart/form-data' },
         onUploadProgress: onProgress
     });
-
     return response.data;
 };
 

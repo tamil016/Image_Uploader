@@ -5,15 +5,15 @@ const router = express.Router();
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/');
+        return cb(null, require('path').resolve('./')+"/uploads");
     },
     filename: (req, file, cb) => {
-        cb(null, `${file.originalname}`);
+       return cb(null, `${file.originalname}`);
     },
 });
 
 const upload = multer({
-    storage,
+    storage: storage,
     limits: { fileSize: 5 * 1024 * 1024 },
     fileFilter: (req, file, cb) => {
         if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
@@ -27,11 +27,13 @@ const upload = multer({
 router.post('/uploads', upload.single('image'), async (req, res) => {
     try {
         const { file } = req;
+        console.log("file", file);
         if (!file) {
             return res.status(400).json({ message: 'No file uploaded' });
         }
+        const imageUrl = `${req.protocol}://${req.get('host')}/uploads/${file.filename}`;
         const image = new Image({
-            url: `http://localhost:5000/uploads/${file.filename}`,
+            url: imageUrl,
             filename: file.filename,
             size: file.size,
             mimetype: file.mimetype,
@@ -68,6 +70,5 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
-
 
 module.exports = router;

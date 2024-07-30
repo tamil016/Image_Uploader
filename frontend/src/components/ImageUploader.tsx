@@ -110,6 +110,9 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ trigger, onClose, onImage
         }
     };
 
+    console.log(images);
+    
+
     return trigger ? (
         <div className="main-container">
             <div className="image-uploader-container">
